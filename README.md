@@ -12,7 +12,7 @@
 
 ## Supported Programming Languages
 CCFinderSW is a token-based clone detector, at the moment, it support programming languages such as:
-  - JavaScript
+
   - Python
   - Java
   - Ruby
