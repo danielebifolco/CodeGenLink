@@ -1,0 +1,12 @@
+.vscode/**
+.vscode-test/**
+src/**
+!src/modules/cosine_similarity.py
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/eslint.config.mjs
+**/*.map
+**/*.ts
+**/.vscode-test.*

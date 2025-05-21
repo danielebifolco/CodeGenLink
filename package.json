@@ -1,0 +1,146 @@
+{
+  "name": "codegenlink",
+  "displayName": "CodeGenLink",
+  "description": "This is a copilot extension that allows you to create two chat participants to get information about the source of the generated/selected code.",
+  "version": "0.0.1",
+  "publisher": "CodeGenLink",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/danielebifolco/codegenlink"
+  },
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "extensionDependencies": [
+    "github.copilot-chat"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "CodeGenLink.sendSelectedCode",
+        "title": "Send Selected Code to Copilot"
+      },
+      {
+        "command": "CodeGenLink.openResults",
+        "title": "Open Results"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "CodeGenLink.sendSelectedCode",
+          "when": "editorHasSelection",
+          "group": "copilot-menu-group@1"
+        }
+      ]
+    },
+    "chatParticipants": [
+      {
+        "id": "vscode-CodeGenLink",
+        "name": "CodeGenLink",
+        "description": "Choose the model and ask to generate the code to start the analysis"
+      },
+      {
+        "id": "vscode-LinkSearcher",
+        "name": "LinkSearcher",
+        "description": "Select the code and send it to request information about the origin"
+      }
+    ],
+    "configuration": {
+      "title": "CodeGenLink Settings",
+      "properties": {
+        "CodeGenLink.AI model": {
+          "type": "string",
+          "default": "gpt-4o",
+          "markdownDescription": "Specify the name of the OpenAI model to use (e.g., `gpt-4o`, `gpt-4.1`). Refer to the [OpenAI documentation](https://platform.openai.com/docs/models) for supported models and the `web_search_preview` tool."
+        },
+        "CodeGenLink.APIKey": {
+          "type": "string",
+          "default": "",
+          "description": "Enter your OpenAI API key to allow the extension to communicate with OpenAI model."
+        },
+        "CodeGenLink.temperature": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Enter the temperature value for the OpenAI model. Higher values produce more creative outputs, while lower values make the output more deterministic."
+        },
+        "CodeGenLink.minLines": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "description": "Specifies the minimum number of code lines required for snippets extracted from web pages to be included in the analysis. Snippets with fewer lines will be excluded."
+        },
+        "CodeGenLink.cloneRatioThreshold": {
+          "type": "number",
+          "default": 60,
+          "minimum": 0,
+          "description": "Specifies the Clone Ratio threshold beyond which to include code snippets from a given link in the final result."
+        },
+        "CodeGenLink.cosineSimilarityThreshold": {
+          "type": "number",
+          "default": 0.6,
+          "minimum": 0,
+          "description": "Specifies the cosine similarity threshold beyond which to include code snippets from a given link in the final result."
+        },
+        "CodeGenLink.CCFinderSWPath": {
+          "type": "string",
+          "default": "",
+          "description": "Specifies the path to the CCFinderSW executable, which is required for code clone detection. Ensure that the path points to the CCFinderSW executable file on your system."
+        },
+        "CodeGenLink.outputDir": {
+          "type": "string",
+          "default": "",
+          "description": "Specifies the path to the directory that will contain the analysis results. This directory will include subdirectories such as 'tmp', 'cloneDetection', 'snippetExtractor', and 'tokens', which will store final results and/or intermediate results used for subsequent stages of the analysis."
+        },
+        "CodeGenLink.minTokenLength": {
+          "type": "string",
+          "default": "20",
+          "description": "Specifies the minimum length of token sequences that CCFinderSW will recognize as potential code clones."
+        },
+        "CodeGenLink.licenseclassifierPath": {
+          "type": "string",
+          "default": "",
+          "description": "Specifies the path to the directory that contains the 'identify_license.go' file to classify the license."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.97.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "compute-cosine-similarity": "^1.1.0",
+    "json2csv": "^6.0.0-alpha.2",
+    "openai": "^4.92.1",
+    "papaparse": "^5.5.2",
+    "puppeteer": "^24.2.1",
+    "undici": "^7.10.0"
+  }
+}
