@@ -25,7 +25,7 @@
     "commands": [
       {
         "command": "CodeGenLink.sendSelectedCode",
-        "title": "Send Selected Code to Copilot"
+        "title": "Send Selected Code to CodeGenLink"
       },
       {
         "command": "CodeGenLink.openResults",
