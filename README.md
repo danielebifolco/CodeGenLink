@@ -56,7 +56,9 @@ For users, to install a .vsix file in VS Code:
   code-insiders --install-extension codegenlink-0.0.1.vsix
   ```
 
-
+## CodeGenLink Video Demo
+  
+  [YouTube](https://youtu.be/M6nqjBf9_pw)
 
 ## Configuration
 
