@@ -85,10 +85,11 @@ You can configure the working parameters by following the instructions below:
 The usage differs depending on the selected functionality:
 
 - **CodeGenLink**: In the Copilot Chat input prompt, type your request prefixed with the tag `@CodeGenLink`. This will trigger code generation and source/license detection.
-  ![Usage example of the @CodeGenLink partecipant](img/scree_codegenlink_usage.png)
+
+  <img src="img/scree_codegenlink_usage.png" alt="Visual Studio Code interface showing the Copilot Chat panel with the Ask Copilot heading and a prompt for CodeGenLink. The prompt requests a Java code snippet for extracting zip files recursively. The environment is a clean workspace with a neutral, professional tone. On-screen text includes: Ask Copilot, Copilot is powered by AI so mistakes are possible. Review output carefully before use. or type number to attach context, at to chat with extensions, Type slash to use commands. The prompt reads: CodeGenLink You are a Senior Java developer. Then give me a Java code snippet about how to extract zip file recursively." width="300">
 
 - **LinkSearcher**: Select the code in the editor, right-click, and choose **"Send Selected Code to Copilot"**. The extension will automatically analyze the selection and retrieve possible source links and license information.
-  ![Triggering of the @LinkSearcher participant](img/screen_linksearcher_usage.png)
+    <img src="img/screen_linksearcher_usage.png" alt="  The Visual Studio Code editor displays a context menu after right-clicking on selected Java code. The menu includes options such as Go to Definition, Go to Declaration, Find All References, Copilot, Rename Symbol, Format Document, and Send Selected Code to CodeGenLink, which is highlighted. The background shows a Java class for extracting zip files. The environment is a clean, professional workspace with a neutral tone. On-screen text includes menu items and code comments." width="300">
 
 ### Recommended Prompt
 
@@ -109,4 +110,4 @@ Clicking this button opens a view containing all the source links identified for
 
 For each listed link, the **associated license** (if detectable) is also shown.
 
-![webView Results](img/screen_webView_results.png)
+<img src="img/screen_webView_results.png" alt="Screenshot showing the Code Similarity Results interface. The main heading reads Code Similarity Results in large bold text. Two result sections are displayed, each containing a URL and license information. The first result lists the URL https://mkyong.com/java/how-to-decompress-files-from-a-zip-file/?utm_source=openai and notes a possible license found MIT in green text. The second result lists the URL https://geekole.com/extract-files-from-a-zip-in-java/?utm_source=openai and shows the license in green text. The layout is clean and professional, with a neutral tone and clear separation between results for easy reading." width="300">
