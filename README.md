@@ -83,7 +83,10 @@ You can configure the working parameters by following the instructions below:
 The usage differs depending on the selected functionality:
 
 - **CodeGenLink**: In the Copilot Chat input prompt, type your request prefixed with the tag `@CodeGenLink`. This will trigger code generation and source/license detection.
+  ![Usage example of the @CodeGenLink partecipant](img/scree_codegenlink_usage.png)
+
 - **LinkSearcher**: Select the code in the editor, right-click, and choose **"Send Selected Code to Copilot"**. The extension will automatically analyze the selection and retrieve possible source links and license information.
+  ![Triggering of the @LinkSearcher participant](img/screen_linksearcher_usage.png)
 
 ### Recommended Prompt
 
@@ -103,3 +106,5 @@ Clicking this button opens a view containing all the source links identified for
 - `cosineSimilarityThreshold`
 
 For each listed link, the **associated license** (if detectable) is also shown.
+
+![webView Results](img/screen_webView_results.png)
